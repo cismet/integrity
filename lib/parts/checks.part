@@ -1,0 +1,11 @@
+cd checks
+d_echo "doing checks"
+for test_folder in `ls -1 |grep '^[0-9]'`
+do
+	cd $test_folder
+    d_echo "Enter $x"
+    #execute the check
+	source $integrity_home/lib/parts/check.part
+    cd .. 
+done
+

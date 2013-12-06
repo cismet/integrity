@@ -1,0 +1,13 @@
+function d_echo { [ ! -z "$debug" ] && echo $1; }
+
+testCounter=0
+failedCounter=0
+passedCounter=0
+
+#debug=1
+
+if [ ! -z $prop_reader ] && [ -f $integrity_home/plugins/reader/$prop_reader/$prop_reader.reader.sh ]
+    then
+    source $integrity_home/plugins/reader/$prop_reader/$prop_reader.reader.sh
+fi
+

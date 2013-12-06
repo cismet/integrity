@@ -1,0 +1,7 @@
+if [ -d finalize ]
+then
+    cd finalize
+    action_type=action
+    source $integrity_home/lib/parts/actions.part 
+    cd ..
+fi 

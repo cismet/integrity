@@ -1,0 +1,7 @@
+if [ -d prepare ]
+then
+    cd prepare
+    action_type=action
+    source $integrity_home/lib/parts/actions.part 
+    cd ..
+fi 

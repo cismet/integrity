@@ -1,0 +1,39 @@
+#debug=1
+    for check_input in $(ls -1 check.*)
+    do
+        d_echo "Check_input=$check_input"
+        #store  check extension in $check_ext
+        check_ext=${check_input##*.}
+        d_echo "Extension=$check_ext"
+        check_plugin=$integrity_home/plugins/checks/$check_ext/$check_ext.check.sh
+        d_echo "... Search for plugin at: $check_plugin"
+        if [ -f $check_input ] && [ -f $check_plugin ] 
+           then
+           source $check_plugin
+        fi
+        break
+    done
+    test_name=${PWD##*/}
+	let testCounter++
+	if [ $result -eq 0 ]
+	then
+		let passedCounter++
+        action_type=passed
+        if [ -d ../always ]
+        then
+            cd ../always
+	    	source $integrity_home/lib/parts/actions.part
+            cd ../$test_folder
+        fi
+		source $integrity_home/lib/parts/actions.part
+	else
+		let failedCounter++
+        action_type=failed
+        if [ -d ../always ]
+        then
+            cd ../always
+	    	source $integrity_home/lib/parts/actions.part
+            cd ../$test_folder
+        fi
+		source $integrity_home/lib/parts/actions.part
+	fi

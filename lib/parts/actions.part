@@ -1,0 +1,19 @@
+#action_type needed
+d_echo "action of action_type $action_type"
+if [ ! -z "$action_type" ]
+then
+    d_echo "action type is not null"
+    for action_input in $(ls -1 [0-9+]*$action_type* 2> /dev/null)
+    do
+        d_echo "Actionnput=$action_input"
+        #store actor extension in $action_ext
+        action_ext=${action_input##*.}
+        d_echo "Extension=$action_ext"
+        action_plugin=$integrity_home/plugins/actions/$action_ext/$action_ext.action.sh
+        d_echo "... Search for plugin at: $action_plugin"
+        if [ -f $action_input ] && [ -f $action_plugin ] 
+           then
+           source $action_plugin
+        fi
+    done
+fi
