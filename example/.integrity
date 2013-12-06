@@ -1,0 +1,13 @@
+#-----------------------------------------------
+# integrity configuration
+#-----------------------------------------------
+integrity_home="/Users/thorsten/dev/i00-integrity/"
+
+jdbc_properties="runtime.properties"
+jdbc_user="connection.username"
+jdbc_pass="connection.password"
+jdbc_url="connection.url"
+
+prop_reader="jdbc.properties"
+
+

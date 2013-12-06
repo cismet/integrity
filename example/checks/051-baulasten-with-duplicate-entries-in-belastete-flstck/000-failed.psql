@@ -1,0 +1,11 @@
+SELECT blattnummer as "Blattnummer mit Baulasten mit doppelten belasteten Flurstuecken"
+FROM alb_baulastblatt_baulasten
+JOIN alb_baulastblatt ON (alb_baulastblatt.baulasten=alb_baulastblatt_baulasten.baulastblatt_reference)
+WHERE alb_baulastblatt_baulasten.baulast IN
+    (SELECT alb_baulast_flurstuecke_belastet.baulast_reference
+     FROM alb_baulast_flurstuecke_belastet,
+          alb_flurstueck_kicker
+     WHERE flurstueck=alb_flurstueck_kicker.id
+     GROUP BY alb_baulast_flurstuecke_belastet.baulast_reference,
+              fs_referenz HAVING count(fs_referenz)>1);
+
