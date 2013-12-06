@@ -1,4 +1,4 @@
 integrity
 =========
 
-A nifty framework to eun database integrity tests
+A nifty framework to run database integrity tests
