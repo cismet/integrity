@@ -1,0 +1,23 @@
+#-----------------------------------------------
+# basic integrity configuration
+#-----------------------------------------------
+integrity_home="/Users/thorsten/dev/i00-integrity/"
+
+
+#### either use a jdbc property file
+
+jdbc_properties="runtime.properties"
+jdbc_user="connection.username"
+jdbc_pass="connection.password"
+jdbc_url="connection.url"
+
+prop_reader="jdbc.properties"
+
+#### or configure the db connection parameter directly
+
+#cuser=username
+#cpass=secret
+#cdbname=yourdbname
+#cport=theport
+#chost=thehostintheinternet
+
