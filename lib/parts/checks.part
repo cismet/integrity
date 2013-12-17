@@ -1,11 +1,33 @@
-cd checks
-d_echo "doing checks"
+cd $checksfolder
+d_echo "doing checks in $checksfolder"
+ls -1 | grep  '^[0-9]'
 for test_folder in `ls -1 |grep '^[0-9]'`
 do
-	cd $test_folder
-    d_echo "Enter $x"
-    #execute the check
-	source $integrity_home/lib/parts/check.part
-    cd .. 
+    bash $integrity_home/lib/parts/isValidCheckFolder.sh $test_folder
+    isValidCheckFolder=$?
+    d_echo "isValidCheckFolder = $isValidCheckFolder"
+    if [ "$isValidCheckFolder" -eq 0 ]
+    then
+	    cd $test_folder
+        d_echo "Enter $test_folder"
+        d_echo "$test_folder is a valid checkfolder"
+        #execute the check
+    	source $integrity_home/lib/parts/check.part
+        cd .. 
+    else 
+        #bash $integrity_home/lib/parts/isValidCheckSubFolder.sh
+        #isValidCheckSubFolder=$?
+        isValidCheckSubFolder=0
+        d_echo "try $test_folder as a checksubfolder"
+        if [ $isValidCheckSubFolder = 0 ]
+        then
+            d_echo "recursion"
+            checksfolder=$test_folder
+            source  $integrity_home/lib/parts/checks.part
+        fi
+    fi
 done
+cd ..
+
+
 

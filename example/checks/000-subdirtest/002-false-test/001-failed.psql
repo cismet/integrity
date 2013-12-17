@@ -1,0 +1,1 @@
+select now() as CurrentTime, 'Test has failed' as Info

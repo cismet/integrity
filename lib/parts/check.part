@@ -15,7 +15,7 @@
     done
     test_name=${PWD##*/}
 	let testCounter++
-	if [ $result -eq 0 ]
+    if [ $result = 0 ]
 	then
 		let passedCounter++
         action_type=passed
