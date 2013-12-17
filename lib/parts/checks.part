@@ -1,5 +1,5 @@
-cd checks
-d_echo "doing checks"
+cd $checksfolder
+d_echo "doing checks in $checksfolder"
 for test_folder in `ls -1 |grep '^[0-9]'`
 do
 	cd $test_folder
