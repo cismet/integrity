@@ -1,6 +1,8 @@
+d_echo "In Prepare"
 if [ -d prepare ]
 then
     cd prepare
+    d_echo "in prepare folder"
     action_type=action
     source $integrity_home/lib/parts/actions.part 
     cd ..

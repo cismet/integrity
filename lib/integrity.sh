@@ -25,6 +25,7 @@ if [ ! -d "$checksfolder" ]
         fi
 fi
 d_echo "Checks in '$checksfolder'"
+cd $checksfolder
 
 source $integrity_home/lib/parts/prepare.part
 source $integrity_home/lib/parts/checks.part
