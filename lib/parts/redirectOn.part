@@ -1,0 +1,5 @@
+exec 69>&1
+exec 70>&2
+
+exec 1>> $action_output 2>&1
+#more infos on http://tldp.org/LDP/abs/html/x17974.html
