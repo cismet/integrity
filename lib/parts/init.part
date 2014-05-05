@@ -11,3 +11,8 @@ if [ ! -z $prop_reader ] && [ -f $integrity_home/plugins/reader/$prop_reader/$pr
     source $integrity_home/plugins/reader/$prop_reader/$prop_reader.reader.sh
 fi
 
+if [ ! -z $action_output ] && [ -f $action_output ]
+    then
+    rm $action_output
+fi
+
