@@ -1,0 +1,3 @@
+#more infos on http://tldp.org/LDP/abs/html/x17974.html
+exec 1>&69 69>&-
+exec 2>&70 70>&-
