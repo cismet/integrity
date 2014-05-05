@@ -10,4 +10,4 @@ jdbc_url="connection.url"
 
 prop_reader="jdbc.properties"
 
-
+action_output="/Users/thorsten/dev/i00-integrity/example/log.txt"
