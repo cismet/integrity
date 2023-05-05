@@ -1,5 +1,5 @@
 #!/bin/bash
-source .integrity
+source ${DOT_INTEGRITY:-".integrity"}
 source $integrity_home/lib/parts/init.part
 
 paramcount=$#
