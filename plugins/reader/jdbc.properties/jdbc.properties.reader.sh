@@ -1,6 +1,5 @@
-cuser=`grep connection.username runtime.properties | sed s/^connection\.username=//`
-cpass=`grep connection.password runtime.properties | sed s/^connection\.password=//`
-chost=`grep connection.url runtime.properties | sed s/connection\.url=jdbc\:postgresql\:..// | sed s/\:/\\\\// | awk 'BEGIN{FS="/"}{print $1}'`
-cport=`grep connection.url runtime.properties | sed s/connection\.url=jdbc\:postgresql\:..// | sed s/\:/\\\\// | awk 'BEGIN{FS="/"}{print $2}'`
-cdbname=`grep connection.url runtime.properties | sed s/connection\.url=jdbc\:postgresql\:..// | sed s/\:/\\\\// | awk 'BEGIN{FS="/"}{print $3}'`
-
+cuser=$(grep connection.username ${jdbc_properties} | sed s#^connection\.username=## | tail -n1)
+cpass=$(grep connection.password ${jdbc_properties} | sed s#^connection\.password=## | tail -n1)
+chost=$(grep connection.url ${jdbc_properties} | tail -n1 | sed -E 's#connection\.url=jdbc:postgresql://(.*)(:([0-9]*)+)/(.*)#\1#')
+cport=$(grep connection.url ${jdbc_properties} | tail -n1 | sed -E 's#connection\.url=jdbc:postgresql://(.*)(:([0-9]*)+)/(.*)#\3#')
+cdbname=$(grep connection.url ${jdbc_properties} | tail -n1 | sed -E 's#connection\.url=jdbc:postgresql://(.*)(:([0-9]*)+)/(.*)#\4#')

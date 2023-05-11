@@ -2,7 +2,7 @@
 # basic integrity configuration
 #-----------------------------------------------
 integrity_home="/Users/thorsten/dev/i00-integrity/"
-
+checks_parent_dir="."
 
 #### either use a jdbc property file
 
