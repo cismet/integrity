@@ -1,5 +1,4 @@
 #!/bin/bash
-
 while getopts 'i:' OPTION; do
   case "$OPTION" in
     i)
